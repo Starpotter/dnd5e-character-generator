@@ -7,7 +7,7 @@
     <title>D&D5e Random Character Generator</title>
     <meta name="description" content="A random character generator for D&D5e." />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="screen.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}" />
   </head>
 
   <body>
@@ -19,13 +19,13 @@
       <p>
       Have you ever had trouble coming up with character ideas for your 5e D&D characters?
       Well fret not, for this website will provide you with one of the basic 5e classes, races,
-      and backgrounds to help you create your next character!
+      and backgrounds to help you create your next character! If you don't like the selection,
+      please reload the website to generate a new character.
       </p> <!--Quick blurb about what the website does-->
       <div id="generator"> <!--Generator for characters-->
-        {{ disclaimer }}
-        {selectedRace}
-        {selectedClass}
-        {selectedBackground}
+        <p>'Your selected race is: {{selectedRace}}!'</p>
+        <p>'Your selected class is: {{selectedClass}}!'</p>
+        <p>'Your selected background is: {{selectedBackground}}!'</p>
       </div>
     </div>
   </body>

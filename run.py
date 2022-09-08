@@ -10,10 +10,21 @@ def index():
     db = sqlite3.connect(GENERATORDB)
     print(db)
 
-    selectedRace = db.execute('SELECT raceName FROM races ORDER BY RANDOM() LIMIT 1')
-    selectedClass = db.execute('SELECT className FROM classes ORDER BY RANDOM() LIMIT 1')
-    selectedBackground = db.execute('SELECT backgroundName FROM backgrounds ORDER BY RANDOM() LIMIT 1')
+    selectedRace = []
+    selectedClass = []
+    selectedBackground = []
+    selectedRaceDesc = []
+    selectedClassDesc = []
+    randomRace = db.execute('SELECT raceName, raceDesc FROM races ORDER BY RANDOM() LIMIT 1')
+    for race in randomRace:
+        selectedRace.append(list(race))
+    randomClass = db.execute('SELECT className, classDesc FROM classes ORDER BY RANDOM() LIMIT 1')
+    for rClass in randomClass:
+        selectedClass.append(list(rClass))
+    randomBackground = db.execute('SELECT backgroundName FROM backgrounds ORDER BY RANDOM() LIMIT 1')
+    for background in randomBackground:
+        selectedBackground.append(list(background))
 
 
     db.close()
-    return render_template('index.html', disclaimer='may contain traces of nuts', selectedRace=selectedRace, selectedClass=selectedClass, selectedBackground=selectedBackground)
+    return render_template('index.html', selectedRace=selectedRace, selectedClass=selectedClass, selectedBackground=selectedBackground)
