@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>D&D5e Random Character Generator</title>
+    <meta name="description" content="A random character generator for D&D5e." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="screen.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Welcome to Sylas's Spectacular D&D5e Character Generator!</h1>
+      <h2>A Website Created by Louis Crawford</h2>
+    </header>
+    <div id="section"> <!--Section to hold the genrtator-->
+      <p>
+      Have you ever had trouble coming up with character ideas for your 5e D&D characters?
+      Well fret not, for this website will provide you with one of the basic 5e classes, races,
+      and backgrounds to help you create your next character!
+      </p> <!--Quick blurb about what the website does-->
+      <div id="generator"> <!--Generator for characters-->
+        {{ disclaimer }}
+        {selectedRace}
+        {selectedClass}
+        {selectedBackground}
+      </div>
+    </div>
+  </body>
+
+</html>
