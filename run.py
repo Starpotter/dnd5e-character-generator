@@ -13,8 +13,6 @@ def index():
     selectedRace = []
     selectedClass = []
     selectedBackground = []
-    selectedRaceDesc = []
-    selectedClassDesc = []
     randomRace = db.execute('SELECT raceName, raceDesc FROM races ORDER BY RANDOM() LIMIT 1')
     for race in randomRace:
         selectedRace.append(list(race))
